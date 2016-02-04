@@ -10,10 +10,13 @@
 
 // The potentiometer is on port A2
 #define   POTENTIOMETER   A2
+#define   SPEAKER         6
 
 void setup() {
+  
   // Sets the potentiometer port to "INPUT"
   pinMode(POTENTIOMETER, INPUT);
+
 
   // Starts communication with the computer
   Serial.begin(9600);
@@ -22,6 +25,7 @@ void setup() {
 void loop() {
   // saves the reading of the potentiometer into "value
   int value = analogRead(POTENTIOMETER);
+  tone(SPEAKER, 3000);
 
   // Prints the current reading
   Serial.println(value);
